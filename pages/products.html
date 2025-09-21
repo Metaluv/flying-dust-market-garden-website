@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Flying Dust Market Garden</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/logos/favicon.svg">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header style="background-color: #00122b;" class="shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex items-center gap-3 hover:opacity-90 transition-opacity">
+                        <img src="../assets/logos/logo-white.svg" alt="Flying Dust Market Garden" class="h-10 w-auto">
+                        <span class="text-white font-semibold text-lg hidden sm:block">Flying Dust Market Garden</span>
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="#" class="text-white border-b-2 px-3 py-2 text-sm font-medium" style="border-color: #ff990a;">Products</a>
+                    <a href="../index.html#services" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Services</a>
+                    <a href="../index.html#contact" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Products Hero -->
+    <section class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl">Our Products</h1>
+                <p class="mt-4 text-xl text-gray-600">Fresh from our garden to your table</p>
+                <div class="mt-6 flex justify-center gap-4 flex-wrap">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgba(255, 153, 10, 0.1); color: #ff990a;">
+                        <i data-lucide="check-circle" class="h-4 w-4 mr-1"></i>
+                        Community Pricing Available
+                    </span>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                        <i data-lucide="leaf" class="h-4 w-4 mr-1"></i>
+                        100% Organic
+                    </span>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                        <i data-lucide="truck" class="h-4 w-4 mr-1"></i>
+                        Local Delivery
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Products Section -->
+    <section class="py-12" x-data="productCatalog()">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Category Filter -->
+            <div class="mb-8">
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <button @click="selectedCategory = 'all'"
+                            :class="selectedCategory === 'all' ? 'bg-orange-500 text-white' : 'bg-white text-gray-700'"
+                            class="px-4 py-2 rounded-lg font-medium transition-colors border"
+                            style="border-color: #ff990a;">
+                        All Products
+                    </button>
+                    <button @click="selectedCategory = 'potatoes'"
+                            :class="selectedCategory === 'potatoes' ? 'bg-orange-500 text-white' : 'bg-white text-gray-700'"
+                            class="px-4 py-2 rounded-lg font-medium transition-colors border flex items-center gap-2">
+                        <i data-lucide="package" class="h-4 w-4"></i>
+                        <span>Potatoes</span>
+                    </button>
+                    <button @click="selectedCategory = 'vegetables'"
+                            :class="selectedCategory === 'vegetables' ? 'bg-orange-500 text-white' : 'bg-white text-gray-700'"
+                            class="px-4 py-2 rounded-lg font-medium transition-colors border flex items-center gap-2">
+                        <i data-lucide="leaf" class="h-4 w-4"></i>
+                        <span>Vegetables</span>
+                    </button>
+                    <button @click="selectedCategory = 'herbs'"
+                            :class="selectedCategory === 'herbs' ? 'bg-orange-500 text-white' : 'bg-white text-gray-700'"
+                            class="px-4 py-2 rounded-lg font-medium transition-colors border flex items-center gap-2">
+                        <i data-lucide="flower-2" class="h-4 w-4"></i>
+                        <span>Herbs</span>
+                    </button>
+                    <button @click="selectedCategory = 'fruits'"
+                            :class="selectedCategory === 'fruits' ? 'bg-orange-500 text-white' : 'bg-white text-gray-700'"
+                            class="px-4 py-2 rounded-lg font-medium transition-colors border flex items-center gap-2">
+                        <i data-lucide="apple" class="h-4 w-4"></i>
+                        <span>Fruits & Trees</span>
+                    </button>
+                    <button @click="selectedCategory = 'honey'"
+                            :class="selectedCategory === 'honey' ? 'bg-orange-500 text-white' : 'bg-white text-gray-700'"
+                            class="px-4 py-2 rounded-lg font-medium transition-colors border flex items-center gap-2">
+                        <i data-lucide="droplets" class="h-4 w-4"></i>
+                        <span>Honey</span>
+                    </button>
+                    <button @click="selectedCategory = 'specialty'"
+                            :class="selectedCategory === 'specialty' ? 'bg-orange-500 text-white' : 'bg-white text-gray-700'"
+                            class="px-4 py-2 rounded-lg font-medium transition-colors border flex items-center gap-2">
+                        <i data-lucide="star" class="h-4 w-4"></i>
+                        <span>Specialty</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Featured Product - Bison Jerky -->
+            <div x-show="selectedCategory === 'all' || selectedCategory === 'specialty'"
+                 class="mb-12 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-2xl p-8 border-2"
+                 style="border-color: #ff990a;">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-red-100 text-red-800 mb-4">
+                            NEW PRODUCT
+                        </span>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Bison Jerky - Teriyaki</h2>
+                        <p class="text-gray-600 mb-6">Premium locally-sourced bison meat, marinated in our signature teriyaki sauce and dried to perfection. A healthy, protein-rich snack that's perfect for on-the-go.</p>
+                        <div class="flex items-center gap-6 mb-6">
+                            <div>
+                                <p class="text-3xl font-bold" style="color: #ff990a;">$18.00</p>
+                                <p class="text-sm text-gray-500">per 70g package</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">High Protein</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Locally Sourced</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <div class="relative">
+                            <div class="mb-4">
+                                <i data-lucide="award" class="h-16 w-16 mx-auto" style="color: #ff990a;"></i>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-sm text-gray-600 font-medium">Premium Quality</p>
+                                <p class="text-xs text-gray-500 mt-1">Artisanal Product</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Display Area -->
+            <div class="space-y-12">
+                <!-- Potatoes Section -->
+                <div x-show="selectedCategory === 'all' || selectedCategory === 'potatoes'">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <i data-lucide="package" class="h-6 w-6" style="color: #ff990a;"></i>
+                        <span>Potatoes</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="potatoes-grid">
+                        <!-- Potato products will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Vegetables Section -->
+                <div x-show="selectedCategory === 'all' || selectedCategory === 'vegetables'">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <i data-lucide="leaf" class="h-6 w-6" style="color: #ff990a;"></i>
+                        <span>Fresh Vegetables</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="vegetables-grid">
+                        <!-- Vegetable products will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Herbs Section -->
+                <div x-show="selectedCategory === 'all' || selectedCategory === 'herbs'">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <i data-lucide="flower-2" class="h-6 w-6" style="color: #ff990a;"></i>
+                        <span>Fresh Herbs</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="herbs-grid">
+                        <!-- Herb products will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Honey Section -->
+                <div x-show="selectedCategory === 'all' || selectedCategory === 'honey'">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <i data-lucide="droplets" class="h-6 w-6" style="color: #ff990a;"></i>
+                        <span>Pure Local Honey</span>
+                    </h3>
+                    <div class="space-y-4" id="honey-grid">
+                        <!-- Honey products will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Fruits Section -->
+                <div x-show="selectedCategory === 'all' || selectedCategory === 'fruits'">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <i data-lucide="apple" class="h-6 w-6" style="color: #ff990a;"></i>
+                        <span>Fruit Trees & Bushes</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="fruits-grid">
+                        <!-- Fruit products will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-white py-16 border-t">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Ready to Order?</h2>
+            <p class="text-xl text-gray-600 mb-8">Contact us for Community Member pricing and bulk orders</p>
+            <div class="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+                <div class="text-center">
+                    <div class="bg-gray-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="phone" class="h-8 w-8" style="color: #ff990a;"></i>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-2 text-gray-900">Call Us</h4>
+                    <p class="text-gray-600">(306) 555-0123</p>
+                    <p class="text-sm text-gray-500 mt-2">Mon-Fri 8am-6pm</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-gray-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="mail" class="h-8 w-8" style="color: #ff990a;"></i>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-2 text-gray-900">Email Order</h4>
+                    <p class="text-gray-600">orders@fdmg.ca</p>
+                    <p class="text-sm text-gray-500 mt-2">24/7 ordering</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-gray-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="map-pin" class="h-8 w-8" style="color: #ff990a;"></i>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-2 text-gray-900">Visit Us</h4>
+                    <p class="text-gray-600">Farmers Market</p>
+                    <p class="text-sm text-gray-500 mt-2">Saturdays 8am-2pm</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: #00122b;" class="mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center">
+                <img src="../assets/logos/logo-white.svg" alt="Flying Dust Market Garden" class="h-12 w-auto mx-auto mb-4">
+                <p class="text-gray-400 text-sm">© 2024 Flying Dust Market Garden Ltd. All rights reserved.</p>
+                <p class="text-gray-500 text-xs mt-2">Fresh • Local • Sustainable</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Load and display all products
+        async function loadProductData() {
+            try {
+                const response = await fetch('../data/products.json');
+                if (!response.ok) throw new Error('Failed to load JSON');
+                const data = await response.json();
+                displayAllProducts(data);
+            } catch (error) {
+                console.error('Error loading products:', error);
+                // Display static product data as fallback
+                displayStaticProducts();
+            }
+        }
+
+        // Static product data fallback
+        function displayStaticProducts() {
+            const potatoesGrid = document.getElementById('potatoes-grid');
+            const vegetablesGrid = document.getElementById('vegetables-grid');
+            const herbsGrid = document.getElementById('herbs-grid');
+            const honeyGrid = document.getElementById('honey-grid');
+            const fruitsGrid = document.getElementById('fruits-grid');
+
+            // Static potato products
+            if (potatoesGrid) {
+                potatoesGrid.innerHTML = `
+                    ${createProductCard({name: 'Red Potatoes (Various Varieties)', varieties: ['Red Chieftain', 'Red Sangre', 'Red Rosi'], unit: 'lbs', communityPrice: 0.65, retailPrice: 1.10, featured: true})}
+                    ${createProductCard({name: 'Russet Potatoes', varieties: ['Gold Rush', 'Blazer'], unit: 'lbs', communityPrice: 0.55, retailPrice: 0.95, featured: true})}
+                    ${createProductCard({name: 'Yellow Potatoes', varieties: ['Satina', 'Colomba'], unit: 'lbs', communityPrice: 0.65, retailPrice: 1.10})}
+                    ${createProductCard({name: 'Fingerling Potatoes', unit: 'lbs', communityPrice: 1.35, retailPrice: 2.25, premium: true})}
+                    ${createProductCard({name: 'Baby Potatoes', unit: 'lbs', communityPrice: 1.45, retailPrice: 2.45, featured: true})}
+                `;
+            }
+
+            // Static vegetable products (sample)
+            if (vegetablesGrid) {
+                vegetablesGrid.innerHTML = `
+                    ${createProductCard({name: 'Green Beans', varieties: ['Tendergreen'], unit: 'lbs', communityPrice: 1.50, retailPrice: 2.50, inSeason: true})}
+                    ${createProductCard({name: 'Detroit Dark Red Beets', unit: 'lbs', communityPrice: 1.10, retailPrice: 1.85, featured: true})}
+                    ${createProductCard({name: 'Broccoli', varieties: ['Calabrese'], unit: 'lbs', communityPrice: 1.95, retailPrice: 3.25, featured: true, inSeason: true})}
+                    ${createProductCard({name: 'Carrots', varieties: ['Nantes', 'Rainbow'], unit: 'lbs', communityPrice: 0.75, retailPrice: 1.25, featured: true})}
+                    ${createProductCard({name: 'Lettuce', varieties: ['Salad Bowl'], unit: 'lbs', communityPrice: 2.70, retailPrice: 4.50, featured: true})}
+                    ${createProductCard({name: 'Tomatoes', varieties: ['Beefsteak Bush'], unit: 'lbs', communityPrice: 2.05, retailPrice: 3.45, featured: true})}
+                    ${createProductCard({name: 'Bell Peppers', unit: 'lbs', communityPrice: 1.90, retailPrice: 3.15, featured: true})}
+                    ${createProductCard({name: 'Strawberries', unit: 'lbs', communityPrice: 3.30, retailPrice: 5.50, featured: true})}
+                `;
+            }
+
+            // Static herb products
+            if (herbsGrid) {
+                herbsGrid.innerHTML = `
+                    ${createProductCard({name: 'Chamomile', unit: 'lbs', communityPrice: 7.50, retailPrice: 12.50, premium: true})}
+                    ${createProductCard({name: 'Parsley', unit: 'lbs', communityPrice: 4.50, retailPrice: 7.50, featured: true})}
+                    ${createProductCard({name: 'Sage', unit: 'lbs', communityPrice: 6.30, retailPrice: 10.50})}
+                    ${createProductCard({name: 'Thyme', unit: 'lbs', communityPrice: 6.90, retailPrice: 11.50})}
+                `;
+            }
+
+            // Static honey products
+            if (honeyGrid) {
+                honeyGrid.innerHTML = `
+                    ${createHoneyCard('Pure Local Honey', {size: '500g', unit: 'jar', communityPrice: 6.00, retailPrice: 10.00})}
+                    ${createHoneyCard('Pure Local Honey', {size: '1kg', unit: 'jar', communityPrice: 9.00, retailPrice: 15.00})}
+                    ${createHoneyCard('Pure Local Honey', {size: '3kg', unit: 'pail', communityPrice: 27.00, retailPrice: 45.00})}
+                `;
+            }
+
+            // Static fruit products
+            if (fruitsGrid) {
+                fruitsGrid.innerHTML = `
+                    ${createProductCard({name: 'Haskap Bush', varieties: ['Boreal Beauty'], unit: 'each', communityPrice: 21.00, retailPrice: 35.00, featured: true})}
+                    ${createProductCard({name: 'Raspberry Bush', varieties: ['Pathfinder'], unit: 'each', communityPrice: 15.00, retailPrice: 25.00, featured: true})}
+                    ${createProductCard({name: 'Apple Tree', varieties: ['Parkland'], unit: 'each', communityPrice: 27.00, retailPrice: 45.00})}
+                    ${createProductCard({name: 'Plum Tree', varieties: ['Brookgold'], unit: 'each', communityPrice: 27.00, retailPrice: 45.00})}
+                `;
+            }
+
+            // Re-initialize icons
+            lucide.createIcons();
+        }
+
+        function displayAllProducts(data) {
+            const potatoesGrid = document.getElementById('potatoes-grid');
+            const vegetablesGrid = document.getElementById('vegetables-grid');
+            const herbsGrid = document.getElementById('herbs-grid');
+            const honeyGrid = document.getElementById('honey-grid');
+            const fruitsGrid = document.getElementById('fruits-grid');
+
+            // Clear existing content
+            if (potatoesGrid) potatoesGrid.innerHTML = '';
+            if (vegetablesGrid) vegetablesGrid.innerHTML = '';
+            if (herbsGrid) herbsGrid.innerHTML = '';
+            if (honeyGrid) honeyGrid.innerHTML = '';
+            if (fruitsGrid) fruitsGrid.innerHTML = '';
+
+            // Process each product
+            data.products.forEach(product => {
+                if (product.category === 'potatoes' && potatoesGrid) {
+                    potatoesGrid.innerHTML += createProductCard(product);
+                } else if (product.category === 'vegetables' && vegetablesGrid) {
+                    vegetablesGrid.innerHTML += createProductCard(product);
+                } else if (product.category === 'herbs' && herbsGrid) {
+                    herbsGrid.innerHTML += createProductCard(product);
+                } else if (product.category === 'honey' && honeyGrid && product.sizes) {
+                    // Special handling for honey with sizes
+                    product.sizes.forEach(size => {
+                        honeyGrid.innerHTML += createHoneyCard(product.name, size);
+                    });
+                } else if (product.category === 'fruits' && fruitsGrid) {
+                    fruitsGrid.innerHTML += createProductCard(product);
+                }
+            });
+
+            // Re-initialize Lucide icons
+            lucide.createIcons();
+        }
+
+        function createProductCard(product) {
+            const varieties = product.varieties ? `<p class="text-xs text-gray-500 mt-1">${product.varieties.join(', ')}</p>` : '';
+            const badges = [];
+            if (product.featured) badges.push('<span class="px-2 py-1 text-xs bg-orange-100 text-orange-800 rounded-full">Featured</span>');
+            if (product.inSeason) badges.push('<span class="px-2 py-1 text-xs bg-green-100 text-green-800 rounded-full">In Season</span>');
+            if (product.premium) badges.push('<span class="px-2 py-1 text-xs bg-purple-100 text-purple-800 rounded-full">Premium</span>');
+            if (product.new) badges.push('<span class="px-2 py-1 text-xs bg-red-100 text-red-800 rounded-full">New</span>');
+
+            const communityPrice = product.communityPrice ? product.communityPrice.toFixed(2) : '';
+            const retailPrice = product.retailPrice ? product.retailPrice.toFixed(2) : '';
+
+            return `
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <h4 class="font-semibold text-lg text-gray-900">${product.name}</h4>
+                    ${varieties}
+                    ${product.description ? `<p class="text-sm text-gray-600 mt-2">${product.description}</p>` : ''}
+                    <div class="mt-4 space-y-2">
+                        ${communityPrice ? `
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-600">Community:</span>
+                                <span class="font-bold text-green-600">$${communityPrice}/${product.unit}</span>
+                            </div>
+                        ` : ''}
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Retail:</span>
+                            <span class="font-bold text-gray-900">$${retailPrice}/${product.unit}</span>
+                        </div>
+                    </div>
+                    ${badges.length > 0 ? `<div class="mt-4 flex gap-2 flex-wrap">${badges.join('')}</div>` : ''}
+                </div>
+            `;
+        }
+
+        function createHoneyCard(name, size) {
+            const communityPrice = size.communityPrice ? size.communityPrice.toFixed(2) : '';
+            const retailPrice = size.retailPrice ? size.retailPrice.toFixed(2) : '';
+
+            return `
+                <div class="bg-white rounded-lg shadow-md p-4 flex justify-between items-center hover:shadow-lg transition-shadow">
+                    <div>
+                        <h5 class="font-semibold text-gray-900">${size.size} ${size.unit}</h5>
+                        ${size.bulk ? '<span class="text-xs text-gray-500">Bulk Size</span>' : ''}
+                    </div>
+                    <div class="text-right">
+                        ${communityPrice ? `<p class="text-sm text-green-600">Community: $${communityPrice}</p>` : ''}
+                        <p class="font-bold text-gray-900">Retail: $${retailPrice}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Product catalog Alpine.js component
+        function productCatalog() {
+            return {
+                selectedCategory: 'all',
+                init() {
+                    // Load products when component initializes
+                    loadProductData();
+                }
+            }
+        }
+
+        // Load products when page loads
+        document.addEventListener('DOMContentLoaded', loadProductData);
+    </script>
+</body>
+</html>

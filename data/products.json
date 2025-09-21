@@ -1,0 +1,529 @@
+{
+  "categories": {
+    "potatoes": {
+      "name": "Potatoes",
+      "description": "Premium quality potatoes, locally grown and harvested fresh",
+      "icon": "package"
+    },
+    "vegetables": {
+      "name": "Fresh Vegetables",
+      "description": "Garden-fresh vegetables, picked at peak ripeness",
+      "icon": "leaf"
+    },
+    "herbs": {
+      "name": "Herbs",
+      "description": "Aromatic herbs for cooking and wellness",
+      "icon": "flower-2"
+    },
+    "fruits": {
+      "name": "Fruits & Trees",
+      "description": "Fresh fruits and fruit trees for your garden",
+      "icon": "apple"
+    },
+    "honey": {
+      "name": "Honey Products",
+      "description": "Pure, local honey from our own hives",
+      "icon": "droplets"
+    },
+    "specialty": {
+      "name": "Specialty Items",
+      "description": "Unique local products and treats",
+      "icon": "star"
+    }
+  },
+  "products": [
+    {
+      "name": "Red Potatoes (Various Varieties)",
+      "category": "potatoes",
+      "varieties": [
+        "Red Chieftain",
+        "Red Sangre",
+        "Red Rosi",
+        "Red Norland",
+        "Red Cristina"
+      ],
+      "unit": "lbs",
+      "communityPrice": 0.65,
+      "retailPrice": 1.1,
+      "featured": true,
+      "inSeason": true
+    },
+    {
+      "name": "Russet Potatoes",
+      "category": "potatoes",
+      "varieties": [
+        "Gold Rush",
+        "Blazer",
+        "Regular"
+      ],
+      "unit": "lbs",
+      "communityPrice": 0.55,
+      "retailPrice": 0.95,
+      "featured": true,
+      "inSeason": true
+    },
+    {
+      "name": "Yellow Potatoes",
+      "category": "potatoes",
+      "varieties": [
+        "Satina",
+        "Colomba"
+      ],
+      "unit": "lbs",
+      "communityPrice": 0.65,
+      "retailPrice": 1.1,
+      "inSeason": true
+    },
+    {
+      "name": "Fingerling Potatoes",
+      "category": "potatoes",
+      "varieties": [
+        "Yellow Bellanita",
+        "Red Carminelle",
+        "Yellow Fingerling"
+      ],
+      "unit": "lbs",
+      "communityPrice": 1.35,
+      "retailPrice": 2.25,
+      "premium": true
+    },
+    {
+      "name": "Baby Potatoes",
+      "category": "potatoes",
+      "unit": "lbs",
+      "communityPrice": 1.45,
+      "retailPrice": 2.45,
+      "featured": true
+    },
+    {
+      "name": "Green Beans",
+      "category": "vegetables",
+      "varieties": [
+        "Tendergreen"
+      ],
+      "unit": "lbs",
+      "communityPrice": 1.5,
+      "retailPrice": 2.5,
+      "inSeason": true
+    },
+    {
+      "name": "Yellow Beans",
+      "category": "vegetables",
+      "varieties": [
+        "Rocdor"
+      ],
+      "unit": "lbs",
+      "communityPrice": 1.5,
+      "retailPrice": 2.5,
+      "inSeason": true
+    },
+    {
+      "name": "Detroit Dark Red Beets",
+      "category": "vegetables",
+      "unit": "lbs",
+      "communityPrice": 1.1,
+      "retailPrice": 1.85,
+      "featured": true
+    },
+    {
+      "name": "Broccoli",
+      "category": "vegetables",
+      "varieties": [
+        "Calabrese"
+      ],
+      "unit": "lbs",
+      "communityPrice": 1.95,
+      "retailPrice": 3.25,
+      "featured": true,
+      "inSeason": true
+    },
+    {
+      "name": "Cabbage",
+      "category": "vegetables",
+      "varieties": [
+        "Green Acre",
+        "Red Jewel"
+      ],
+      "unit": "lbs",
+      "communityPrice": 0.85,
+      "retailPrice": 1.45
+    },
+    {
+      "name": "Carrots",
+      "category": "vegetables",
+      "varieties": [
+        "Nantes",
+        "Rainbow"
+      ],
+      "unit": "lbs",
+      "communityPrice": 0.75,
+      "retailPrice": 1.25,
+      "featured": true,
+      "inSeason": true
+    },
+    {
+      "name": "Cauliflower",
+      "category": "vegetables",
+      "varieties": [
+        "Super Snowball"
+      ],
+      "unit": "lbs",
+      "communityPrice": 2.1,
+      "retailPrice": 3.5
+    },
+    {
+      "name": "Celery",
+      "category": "vegetables",
+      "varieties": [
+        "Utah Green"
+      ],
+      "unit": "lbs",
+      "communityPrice": 1.35,
+      "retailPrice": 2.25
+    },
+    {
+      "name": "Cucumber",
+      "category": "vegetables",
+      "varieties": [
+        "Ashley",
+        "National Pickling"
+      ],
+      "unit": "lbs",
+      "communityPrice": 1.3,
+      "retailPrice": 2.15,
+      "inSeason": true
+    },
+    {
+      "name": "Lettuce",
+      "category": "vegetables",
+      "varieties": [
+        "Salad Bowl",
+        "Great Lakes"
+      ],
+      "unit": "lbs",
+      "communityPrice": 2.7,
+      "retailPrice": 4.5,
+      "featured": true
+    },
+    {
+      "name": "Yellow Onions",
+      "category": "vegetables",
+      "varieties": [
+        "Spanish"
+      ],
+      "unit": "lbs",
+      "communityPrice": 0.8,
+      "retailPrice": 1.35
+    },
+    {
+      "name": "Sugar Snap Peas",
+      "category": "vegetables",
+      "unit": "lbs",
+      "communityPrice": 2.3,
+      "retailPrice": 3.85,
+      "inSeason": true
+    },
+    {
+      "name": "Bell Peppers",
+      "category": "vegetables",
+      "varieties": [
+        "California Wonder"
+      ],
+      "unit": "lbs",
+      "communityPrice": 1.9,
+      "retailPrice": 3.15,
+      "featured": true
+    },
+    {
+      "name": "Hot Peppers",
+      "category": "vegetables",
+      "varieties": [
+        "Assorted"
+      ],
+      "unit": "lbs",
+      "communityPrice": 2.55,
+      "retailPrice": 4.25,
+      "specialty": true
+    },
+    {
+      "name": "Spinach",
+      "category": "vegetables",
+      "varieties": [
+        "Bloomsdale"
+      ],
+      "unit": "lbs",
+      "communityPrice": 1.95,
+      "retailPrice": 3.25
+    },
+    {
+      "name": "Pumpkin",
+      "category": "vegetables",
+      "varieties": [
+        "Jack O' Lantern",
+        "Small Sugar"
+      ],
+      "unit": "lbs",
+      "communityPrice": 0.75,
+      "retailPrice": 1.25,
+      "seasonal": "fall"
+    },
+    {
+      "name": "Radish",
+      "category": "vegetables",
+      "varieties": [
+        "Cherry Belle"
+      ],
+      "unit": "lbs",
+      "communityPrice": 1.35,
+      "retailPrice": 2.25
+    },
+    {
+      "name": "Squash",
+      "category": "vegetables",
+      "varieties": [
+        "Vegetable Spaghetti",
+        "Butternut",
+        "Zucchini Black"
+      ],
+      "unit": "lbs",
+      "communityPrice": 1.0,
+      "retailPrice": 1.65,
+      "featured": true
+    },
+    {
+      "name": "Swiss Chard",
+      "category": "vegetables",
+      "varieties": [
+        "Fordhook Giant"
+      ],
+      "unit": "lbs",
+      "communityPrice": 1.7,
+      "retailPrice": 2.85
+    },
+    {
+      "name": "Tomatoes",
+      "category": "vegetables",
+      "varieties": [
+        "Beefsteak Bush",
+        "Tiny Tim"
+      ],
+      "unit": "lbs",
+      "communityPrice": 2.05,
+      "retailPrice": 3.45,
+      "featured": true,
+      "inSeason": true
+    },
+    {
+      "name": "Turnip",
+      "category": "vegetables",
+      "varieties": [
+        "Purple Top"
+      ],
+      "unit": "lbs",
+      "communityPrice": 0.85,
+      "retailPrice": 1.45
+    },
+    {
+      "name": "Strawberries",
+      "category": "vegetables",
+      "varieties": [
+        "All Star"
+      ],
+      "unit": "lbs",
+      "communityPrice": 3.3,
+      "retailPrice": 5.5,
+      "featured": true,
+      "seasonal": "summer"
+    },
+    {
+      "name": "Sunflower Seeds",
+      "category": "vegetables",
+      "description": "Raw Edible",
+      "unit": "lbs",
+      "communityPrice": 2.3,
+      "retailPrice": 3.85
+    },
+    {
+      "name": "Chamomile",
+      "category": "herbs",
+      "unit": "lbs",
+      "communityPrice": 7.5,
+      "retailPrice": 12.5,
+      "premium": true
+    },
+    {
+      "name": "Dill",
+      "category": "herbs",
+      "unit": "lbs",
+      "communityPrice": 5.1,
+      "retailPrice": 8.5
+    },
+    {
+      "name": "Spearmint",
+      "category": "herbs",
+      "unit": "lbs",
+      "communityPrice": 5.7,
+      "retailPrice": 9.5
+    },
+    {
+      "name": "Parsley",
+      "category": "herbs",
+      "unit": "lbs",
+      "communityPrice": 4.5,
+      "retailPrice": 7.5,
+      "featured": true
+    },
+    {
+      "name": "Sage",
+      "category": "herbs",
+      "unit": "lbs",
+      "communityPrice": 6.3,
+      "retailPrice": 10.5
+    },
+    {
+      "name": "Thyme",
+      "category": "herbs",
+      "unit": "lbs",
+      "communityPrice": 6.9,
+      "retailPrice": 11.5
+    },
+    {
+      "name": "Plum Tree",
+      "category": "fruits",
+      "varieties": [
+        "Acme",
+        "Canada",
+        "Brookgold"
+      ],
+      "unit": "each",
+      "communityPrice": 27.0,
+      "retailPrice": 45.0
+    },
+    {
+      "name": "Hazelnut Tree",
+      "category": "fruits",
+      "varieties": [
+        "Beaked"
+      ],
+      "unit": "each",
+      "communityPrice": 33.0,
+      "retailPrice": 55.0
+    },
+    {
+      "name": "Haskap Bush",
+      "category": "fruits",
+      "varieties": [
+        "Boreal Beauty"
+      ],
+      "unit": "each",
+      "communityPrice": 21.0,
+      "retailPrice": 35.0,
+      "featured": true
+    },
+    {
+      "name": "Apple Tree",
+      "category": "fruits",
+      "varieties": [
+        "Parkland"
+      ],
+      "unit": "each",
+      "communityPrice": 27.0,
+      "retailPrice": 45.0
+    },
+    {
+      "name": "Raspberry Bush",
+      "category": "fruits",
+      "varieties": [
+        "Pathfinder"
+      ],
+      "unit": "each",
+      "communityPrice": 15.0,
+      "retailPrice": 25.0,
+      "featured": true
+    },
+    {
+      "name": "Chokecherry",
+      "category": "fruits",
+      "varieties": [
+        "Garrington"
+      ],
+      "unit": "each",
+      "communityPrice": 19.2,
+      "retailPrice": 32.0
+    },
+    {
+      "name": "Blackcurrant Bush",
+      "category": "fruits",
+      "unit": "each",
+      "communityPrice": 16.8,
+      "retailPrice": 28.0
+    },
+    {
+      "name": "Elderberry Bush",
+      "category": "fruits",
+      "unit": "each",
+      "communityPrice": 22.8,
+      "retailPrice": 38.0
+    },
+    {
+      "name": "Lilac Bush",
+      "category": "herbs",
+      "unit": "each",
+      "communityPrice": 21.0,
+      "retailPrice": 35.0
+    },
+    {
+      "name": "Pure Local Honey",
+      "category": "honey",
+      "sizes": [
+        {
+          "size": "500g",
+          "unit": "jar",
+          "communityPrice": 6.0,
+          "retailPrice": 10.0
+        },
+        {
+          "size": "1kg",
+          "unit": "jar",
+          "communityPrice": 9.0,
+          "retailPrice": 15.0
+        },
+        {
+          "size": "3kg",
+          "unit": "pail",
+          "communityPrice": 27.0,
+          "retailPrice": 45.0
+        },
+        {
+          "size": "55gal",
+          "unit": "barrel",
+          "communityPrice": 1920.0,
+          "retailPrice": 3200.0,
+          "bulk": true
+        }
+      ],
+      "featured": true,
+      "description": "Pure, unpasteurized honey from our own hives"
+    },
+    {
+      "name": "Bison Jerky - Teriyaki",
+      "category": "specialty",
+      "unit": "70g package",
+      "retailPrice": 18.0,
+      "featured": true,
+      "premium": true,
+      "description": "Premium locally-sourced bison meat, marinated in teriyaki sauce and dried to perfection",
+      "new": true
+    }
+  ],
+  "specialOffers": {
+    "communityDiscount": {
+      "description": "Special pricing for community members",
+      "discountPercentage": 40
+    },
+    "bulkDiscounts": {
+      "description": "Contact us for bulk orders",
+      "minOrder": 50
+    }
+  }
+}

@@ -11,25 +11,53 @@
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 <body class="bg-gray-50">
-    <!-- Header -->
-    <header style="background-color: #00122b;" class="shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <a href="../index.html" class="flex items-center gap-3 hover:opacity-90 transition-opacity">
-                        <img src="../assets/logos/logo-white.svg" alt="Flying Dust Market Garden" class="h-10 w-auto">
-                        <span class="text-white font-semibold text-lg hidden sm:block">Flying Dust Market Garden</span>
-                    </a>
+    <!-- Navigation -->
+    <nav class="shadow-lg sticky top-0 z-50" style="background-color: #00122b;" x-data="{ mobileMenuOpen: false }">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 justify-between">
+                <div class="flex">
+                    <div class="flex flex-shrink-0 items-center">
+                        <a href="../index.html" class="hover:opacity-90 transition-opacity flex items-center gap-3">
+                            <img src="../assets/logos/logo-white.svg" alt="Flying Dust Market Garden" class="h-10 w-auto max-w-[180px]">
+                            <span class="text-white font-semibold text-lg hidden sm:block">Flying Dust Market Garden</span>
+                        </a>
+                    </div>
                 </div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="../index.html" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Home</a>
-                    <a href="#" class="text-white border-b-2 px-3 py-2 text-sm font-medium" style="border-color: #ff990a;">Products</a>
-                    <a href="../index.html#services" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Services</a>
-                    <a href="../index.html#contact" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Contact</a>
-                </nav>
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <a href="../index.html" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-300 hover:text-white hover:border-orange-400">Home</a>
+                    <a href="#" class="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium text-white" style="border-color: #ff990a;">Products</a>
+                    <a href="../index.html#services" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-300 hover:text-white hover:border-orange-400">Services</a>
+                    <a href="../index.html#about" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-300 hover:text-white hover:border-orange-400">About</a>
+                    <a href="../index.html#team" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-300 hover:text-white hover:border-orange-400">Team</a>
+                    <a href="../index.html#contact" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-300 hover:text-white hover:border-orange-400">Contact</a>
+                </div>
+                <div class="flex items-center">
+                    <button type="button" class="rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2" style="background-color: #ff990a; focus-visible:outline-color: #ff990a;">
+                        <i data-lucide="shopping-basket" class="inline-block h-4 w-4 mr-1"></i>
+                        Order Now
+                    </button>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-300 hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500">
+                        <i data-lucide="menu" x-show="!mobileMenuOpen" class="block h-6 w-6"></i>
+                        <i data-lucide="x" x-show="mobileMenuOpen" class="block h-6 w-6"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </header>
+
+        <!-- Mobile menu -->
+        <div x-show="mobileMenuOpen" class="sm:hidden">
+            <div class="space-y-1 pb-3 pt-2">
+                <a href="../index.html" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-300 hover:border-orange-400 hover:bg-gray-800 hover:text-white">Home</a>
+                <a href="#" class="block border-l-4 py-2 pl-3 pr-4 text-base font-medium text-white" style="border-color: #ff990a; background-color: rgba(255, 153, 10, 0.1);">Products</a>
+                <a href="../index.html#services" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-300 hover:border-orange-400 hover:bg-gray-800 hover:text-white">Services</a>
+                <a href="../index.html#about" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-300 hover:border-orange-400 hover:bg-gray-800 hover:text-white">About</a>
+                <a href="../index.html#team" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-300 hover:border-orange-400 hover:bg-gray-800 hover:text-white">Team</a>
+                <a href="../index.html#contact" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-300 hover:border-orange-400 hover:bg-gray-800 hover:text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
 
     <!-- Products Hero -->
     <section class="bg-white py-12">

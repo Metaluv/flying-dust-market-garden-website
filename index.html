@@ -167,7 +167,7 @@
                     Seasonal vegetables and fruits grown with care
                 </p>
             </div>
-            <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3" id="featuredProductsGrid">
+            <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-4" id="featuredProductsGrid">
                 <!-- Loading featured products -->
             </div>
             <div class="text-center mt-12">
@@ -608,8 +608,16 @@
                         name: 'NEW: Bison Jerky',
                         description: 'Premium Teriyaki Bison Jerky - locally sourced, artisanal quality. 70g packages.',
                         price: '$18.00',
-                        icon: 'award',
+                        image: 'assets/images/gallery/fdmg_bison_jerky_teriyaki.png',
                         badge: 'New Product',
+                        special: true
+                    },
+                    {
+                        name: 'Pure Local Honey',
+                        description: 'Raw, unprocessed honey from our on-site bee hives. Available in 500ml and 1L jars.',
+                        price: 'From $12.00',
+                        icon: 'hexagon',
+                        badge: 'Natural',
                         special: true
                     }
                 ];
@@ -618,8 +626,11 @@
                 grid.innerHTML = featuredProducts.map(product => `
                     <article class="flex flex-col items-start">
                         <div class="relative w-full">
-                            <div class="aspect-[16/9] w-full rounded-2xl bg-gradient-to-br ${product.special ? 'from-orange-100 to-orange-200' : 'from-green-100 to-green-200'} flex items-center justify-center">
-                                <i data-lucide="${product.icon}" class="h-24 w-24" style="color: #ff990a;"></i>
+                            <div class="aspect-[16/9] w-full rounded-2xl ${product.image ? '' : `bg-gradient-to-br ${product.special ? 'from-orange-100 to-orange-200' : 'from-green-100 to-green-200'}`} flex items-center justify-center overflow-hidden">
+                                ${product.image ?
+                                    `<img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover rounded-2xl">` :
+                                    `<i data-lucide="${product.icon}" class="h-24 w-24" style="color: #ff990a;"></i>`
+                                }
                             </div>
                         </div>
                         <div class="max-w-xl">

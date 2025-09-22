@@ -278,10 +278,15 @@
                         </a>
                     </div>
 
-                    <!-- Required Fields Notice -->
-                    <p class="text-xs text-gray-500 text-center">
-                        <span class="text-red-500">*</span> Required fields
-                    </p>
+                    <!-- Submit Notice -->
+                    <div class="text-center space-y-1">
+                        <p class="text-xs text-gray-500">
+                            <span class="text-red-500">*</span> Required fields
+                        </p>
+                        <p class="text-xs text-gray-500">
+                            Clicking "Submit Order" will open your email client to send the order to <span class="font-medium">orders@fdmg.ca</span>
+                        </p>
+                    </div>
                 </form>
             </div>
         </div>
@@ -350,26 +355,65 @@
                     }
 
                     // Collect form data
-                    const formData = {
-                        name: name,
-                        age: document.getElementById('age').value,
-                        treaty: document.getElementById('treaty').value,
-                        phone: phone,
-                        address: address,
-                        deliveryMethod: this.deliveryMethod,
-                        comments: document.getElementById('comments').value,
-                        paymentOption: this.paymentOption,
-                        timestamp: new Date().toISOString()
+                    const age = document.getElementById('age').value;
+                    const treaty = document.getElementById('treaty').value;
+                    const comments = document.getElementById('comments').value;
+                    const timestamp = new Date().toLocaleString();
+
+                    // Map payment option to readable text
+                    const paymentMethods = {
+                        'cash': 'Cash (In-Person)',
+                        'debit': 'Debit (In-Person)',
+                        'credit': 'Credit Card (In-Person)',
+                        'cheque': 'Cheque (In-Person)',
+                        'po': 'Purchase Order (In-Person)',
+                        'online': 'Online Payment (Invoice by Credit Card)',
+                        'fdfn': 'FDFN Department Billing',
+                        'mltc': 'MLTC Department Billing'
                     };
 
-                    // Log form data (in production, this would be sent to a server)
-                    console.log('Order submitted:', formData);
+                    // Create email body
+                    const emailBody = `NEW ORDER SUBMISSION
 
-                    // Show success message
-                    alert('Order submitted successfully! We will contact you shortly.');
+ORDER DETAILS
+========================================
+Date/Time: ${timestamp}
 
-                    // Redirect to home page
-                    window.location.href = '../index.html';
+CUSTOMER INFORMATION
+----------------------------------------
+Name: ${name}
+Age: ${age || 'Not provided'}
+Treaty Number: ${treaty || 'Not provided'}
+Phone: ${phone}
+Address: ${address}
+
+DELIVERY METHOD
+----------------------------------------
+${this.deliveryMethod === 'delivery' ? 'Delivery to address' : 'Customer will pickup'}
+
+ORDER ITEMS & COMMENTS
+----------------------------------------
+${comments || 'No items specified'}
+
+PAYMENT METHOD
+----------------------------------------
+${paymentMethods[this.paymentOption]}
+${(this.paymentOption === 'fdfn' || this.paymentOption === 'mltc') ? '\n⚠️ NOTE: Invoice requires department approval before delivery/pickup' : ''}
+
+========================================
+This order was submitted via the Flying Dust Market Garden website.`;
+
+                    // Create mailto link
+                    const subject = `New Order from ${name} - ${timestamp}`;
+                    const mailtoLink = `mailto:orders@fdmg.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+
+                    // Open email client
+                    window.location.href = mailtoLink;
+
+                    // Show success message after a short delay
+                    setTimeout(() => {
+                        alert('Order form has been prepared in your email client. Please send the email to complete your order submission.');
+                    }, 500);
                 }
             }
         }

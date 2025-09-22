@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form - Flying Dust Market Garden</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/logos/favicon.svg">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="shadow-lg sticky top-0 z-50" style="background-color: #00122b;" x-data="{ mobileMenuOpen: false }">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 justify-between">
+                <div class="flex">
+                    <div class="flex flex-shrink-0 items-center">
+                        <a href="../index.html" class="hover:opacity-90 transition-opacity flex items-center gap-3">
+                            <img src="../assets/logos/logo-white.svg" alt="Flying Dust Market Garden" class="h-10 w-auto max-w-[180px]">
+                            <span class="text-white font-semibold text-lg hidden sm:block">Flying Dust Market Garden</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <a href="../index.html" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-300 hover:text-white hover:border-orange-400">Home</a>
+                    <a href="products.html" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-300 hover:text-white hover:border-orange-400">Products</a>
+                    <a href="../index.html#services" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-300 hover:text-white hover:border-orange-400">Services</a>
+                    <a href="../index.html#about" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-300 hover:text-white hover:border-orange-400">About</a>
+                    <a href="../index.html#team" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-300 hover:text-white hover:border-orange-400">Team</a>
+                    <a href="../index.html#contact" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-300 hover:text-white hover:border-orange-400">Contact</a>
+                </div>
+                <div class="flex items-center">
+                    <a href="#" class="rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2" style="background-color: #ff990a; focus-visible:outline-color: #ff990a;">
+                        <i data-lucide="shopping-basket" class="inline-block h-4 w-4 mr-1"></i>
+                        Order Now
+                    </a>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-300 hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500">
+                        <i data-lucide="menu" x-show="!mobileMenuOpen" class="block h-6 w-6"></i>
+                        <i data-lucide="x" x-show="mobileMenuOpen" class="block h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div x-show="mobileMenuOpen" class="sm:hidden">
+            <div class="space-y-1 pb-3 pt-2">
+                <a href="../index.html" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-300 hover:border-orange-400 hover:bg-gray-800 hover:text-white">Home</a>
+                <a href="products.html" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-300 hover:border-orange-400 hover:bg-gray-800 hover:text-white">Products</a>
+                <a href="../index.html#services" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-300 hover:border-orange-400 hover:bg-gray-800 hover:text-white">Services</a>
+                <a href="../index.html#about" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-300 hover:border-orange-400 hover:bg-gray-800 hover:text-white">About</a>
+                <a href="../index.html#team" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-300 hover:border-orange-400 hover:bg-gray-800 hover:text-white">Team</a>
+                <a href="../index.html#contact" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-300 hover:border-orange-400 hover:bg-gray-800 hover:text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Order Form Section -->
+    <section class="py-12">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Order Form</h1>
+                    <p class="text-gray-600">Fill out the form below to place your order</p>
+                </div>
+
+                <form id="orderForm" class="space-y-6" x-data="orderForm()">
+                    <!-- Personal Information Section -->
+                    <div class="border-b border-gray-200 pb-6">
+                        <h2 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                            <i data-lucide="user" class="h-5 w-5" style="color: #ff990a;"></i>
+                            Personal Information
+                        </h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Name (Required) -->
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">
+                                    Name <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 px-3 py-2 border"
+                                    placeholder="Enter your full name">
+                            </div>
+
+                            <!-- Age -->
+                            <div>
+                                <label for="age" class="block text-sm font-medium text-gray-700 mb-1">
+                                    Age
+                                </label>
+                                <input type="number" id="age" name="age" min="1" max="150"
+                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 px-3 py-2 border"
+                                    placeholder="Enter your age">
+                            </div>
+
+                            <!-- Treaty Number -->
+                            <div>
+                                <label for="treaty" class="block text-sm font-medium text-gray-700 mb-1">
+                                    Treaty Number
+                                </label>
+                                <input type="text" id="treaty" name="treaty"
+                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 px-3 py-2 border"
+                                    placeholder="Enter treaty number (if applicable)">
+                            </div>
+
+                            <!-- Phone Number (Required) -->
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">
+                                    Phone Number <span class="text-red-500">*</span>
+                                </label>
+                                <input type="tel" id="phone" name="phone" required
+                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 px-3 py-2 border"
+                                    placeholder="(306) XXX-XXXX">
+                            </div>
+                        </div>
+
+                        <!-- Address (Required) -->
+                        <div class="mt-4">
+                            <label for="address" class="block text-sm font-medium text-gray-700 mb-1">
+                                Address <span class="text-red-500">*</span>
+                            </label>
+                            <textarea id="address" name="address" required rows="2"
+                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 px-3 py-2 border"
+                                placeholder="Enter your complete address"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Order Details Section -->
+                    <div class="border-b border-gray-200 pb-6">
+                        <h2 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                            <i data-lucide="shopping-cart" class="h-5 w-5" style="color: #ff990a;"></i>
+                            Order Details
+                        </h2>
+
+                        <!-- Delivery Method -->
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Delivery Method <span class="text-red-500">*</span>
+                            </label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
+                                    :class="deliveryMethod === 'delivery' ? 'border-orange-500 bg-orange-50' : 'border-gray-300'">
+                                    <input type="radio" name="deliveryMethod" value="delivery"
+                                        x-model="deliveryMethod" class="mr-3 text-orange-500 focus:ring-orange-500">
+                                    <div>
+                                        <span class="font-medium">Delivery</span>
+                                        <p class="text-xs text-gray-500">We'll deliver to your address</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
+                                    :class="deliveryMethod === 'pickup' ? 'border-orange-500 bg-orange-50' : 'border-gray-300'">
+                                    <input type="radio" name="deliveryMethod" value="pickup"
+                                        x-model="deliveryMethod" class="mr-3 text-orange-500 focus:ring-orange-500">
+                                    <div>
+                                        <span class="font-medium">Pickup</span>
+                                        <p class="text-xs text-gray-500">Pickup at our location</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Order Comments -->
+                        <div>
+                            <label for="comments" class="block text-sm font-medium text-gray-700 mb-1">
+                                Order Details / Comments
+                            </label>
+                            <textarea id="comments" name="comments" rows="6"
+                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 px-3 py-2 border"
+                                placeholder="Please list the items you want to order and any special instructions. For example:&#10;- 10 lbs Red Potatoes&#10;- 5 lbs Carrots&#10;- 1 jar Honey (500g)&#10;- Special delivery instructions..."></textarea>
+                            <p class="mt-1 text-xs text-gray-500">Please be specific about quantities and product varieties</p>
+                        </div>
+                    </div>
+
+                    <!-- Payment Options Section -->
+                    <div class="pb-6">
+                        <h2 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                            <i data-lucide="credit-card" class="h-5 w-5" style="color: #ff990a;"></i>
+                            Payment Options <span class="text-red-500">*</span>
+                        </h2>
+
+                        <div class="space-y-3">
+                            <!-- In-Person Payment Options -->
+                            <div class="border rounded-lg p-4">
+                                <h3 class="font-medium text-gray-900 mb-3">In-Person Payment</h3>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="paymentOption" value="cash"
+                                            x-model="paymentOption" class="mr-2 text-orange-500 focus:ring-orange-500">
+                                        <span>Cash</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="paymentOption" value="debit"
+                                            x-model="paymentOption" class="mr-2 text-orange-500 focus:ring-orange-500">
+                                        <span>Debit</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="paymentOption" value="credit"
+                                            x-model="paymentOption" class="mr-2 text-orange-500 focus:ring-orange-500">
+                                        <span>Credit</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="paymentOption" value="cheque"
+                                            x-model="paymentOption" class="mr-2 text-orange-500 focus:ring-orange-500">
+                                        <span>Cheque</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="paymentOption" value="po"
+                                            x-model="paymentOption" class="mr-2 text-orange-500 focus:ring-orange-500">
+                                        <span>P.O.</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Online Payment -->
+                            <div class="border rounded-lg p-4">
+                                <label class="flex items-start">
+                                    <input type="radio" name="paymentOption" value="online"
+                                        x-model="paymentOption" class="mr-3 mt-1 text-orange-500 focus:ring-orange-500">
+                                    <div>
+                                        <span class="font-medium text-gray-900">Online Payment</span>
+                                        <p class="text-sm text-gray-500">Payment through invoice by credit card</p>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Department Billing -->
+                            <div class="border rounded-lg p-4">
+                                <h3 class="font-medium text-gray-900 mb-3">Department Billing</h3>
+                                <div class="space-y-2">
+                                    <label class="flex items-start">
+                                        <input type="radio" name="paymentOption" value="fdfn"
+                                            x-model="paymentOption" class="mr-3 mt-1 text-orange-500 focus:ring-orange-500">
+                                        <div>
+                                            <span class="font-medium">FDFN</span>
+                                            <p class="text-sm text-gray-500">Invoice will be sent to FDFN for approval</p>
+                                        </div>
+                                    </label>
+                                    <label class="flex items-start">
+                                        <input type="radio" name="paymentOption" value="mltc"
+                                            x-model="paymentOption" class="mr-3 mt-1 text-orange-500 focus:ring-orange-500">
+                                        <div>
+                                            <span class="font-medium">MLTC</span>
+                                            <p class="text-sm text-gray-500">Invoice will be sent to MLTC for approval</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Department Billing Notice -->
+                        <div x-show="paymentOption === 'fdfn' || paymentOption === 'mltc'"
+                            class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                            <div class="flex items-start">
+                                <i data-lucide="info" class="h-5 w-5 text-blue-500 mt-0.5 mr-2"></i>
+                                <div class="text-sm text-blue-800">
+                                    <p class="font-medium">Department Billing Selected</p>
+                                    <p>A copy of the invoice will be sent to <span x-text="paymentOption.toUpperCase()"></span> for approval before delivery or pickup.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="flex gap-4">
+                        <button type="submit"
+                            class="flex-1 rounded-md px-6 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 transition-opacity"
+                            style="background-color: #ff990a;">
+                            <i data-lucide="send" class="inline-block h-4 w-4 mr-2"></i>
+                            Submit Order
+                        </button>
+                        <a href="../index.html"
+                            class="px-6 py-3 text-sm font-semibold text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300 transition-colors">
+                            Cancel
+                        </a>
+                    </div>
+
+                    <!-- Required Fields Notice -->
+                    <p class="text-xs text-gray-500 text-center">
+                        <span class="text-red-500">*</span> Required fields
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Message Modal -->
+    <div x-data="{ showSuccess: false }" x-show="showSuccess"
+        class="fixed inset-0 z-50 overflow-y-auto" style="display: none;">
+        <div class="flex items-center justify-center min-h-screen px-4">
+            <div class="fixed inset-0 bg-black opacity-50"></div>
+            <div class="relative bg-white rounded-lg max-w-md w-full p-8 text-center">
+                <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
+                    <i data-lucide="check-circle" class="h-10 w-10 text-green-600"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Order Submitted!</h3>
+                <p class="text-gray-600 mb-6">
+                    Thank you for your order. We will contact you shortly to confirm details and arrange payment.
+                </p>
+                <button @click="window.location.href='../index.html'"
+                    class="rounded-md px-6 py-2 text-sm font-semibold text-white shadow-sm hover:opacity-90"
+                    style="background-color: #ff990a;">
+                    Return to Home
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 mt-auto">
+        <div class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+            <p class="text-center text-xs leading-5 text-gray-400">
+                &copy; 2024 Flying Dust Market Garden Ltd. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Initialize Scripts -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Alpine.js Order Form Component
+        function orderForm() {
+            return {
+                deliveryMethod: 'delivery',
+                paymentOption: '',
+
+                init() {
+                    // Initialize form
+                    const form = document.getElementById('orderForm');
+                    form.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        this.submitOrder();
+                    });
+                },
+
+                submitOrder() {
+                    // Validate required fields
+                    const name = document.getElementById('name').value;
+                    const address = document.getElementById('address').value;
+                    const phone = document.getElementById('phone').value;
+
+                    if (!name || !address || !phone || !this.paymentOption) {
+                        alert('Please fill in all required fields');
+                        return;
+                    }
+
+                    // Collect form data
+                    const formData = {
+                        name: name,
+                        age: document.getElementById('age').value,
+                        treaty: document.getElementById('treaty').value,
+                        phone: phone,
+                        address: address,
+                        deliveryMethod: this.deliveryMethod,
+                        comments: document.getElementById('comments').value,
+                        paymentOption: this.paymentOption,
+                        timestamp: new Date().toISOString()
+                    };
+
+                    // Log form data (in production, this would be sent to a server)
+                    console.log('Order submitted:', formData);
+
+                    // Show success message
+                    alert('Order submitted successfully! We will contact you shortly.');
+
+                    // Redirect to home page
+                    window.location.href = '../index.html';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

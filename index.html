@@ -68,8 +68,15 @@
 
     <!-- Hero Section -->
     <section id="home" class="relative bg-white">
-        <div class="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
-            <div class="px-6 pb-24 pt-10 sm:pb-32 lg:col-span-7 lg:px-0 lg:pb-56 lg:pt-48 xl:col-span-6">
+        <div class="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 flex flex-col-reverse lg:flex-row">
+            <!-- Image first on mobile, second on desktop -->
+            <div class="relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0 order-first lg:order-last">
+                <div class="relative h-96 lg:h-full rounded-lg overflow-hidden mx-4 mt-4 lg:mx-0 lg:mt-0">
+                    <img src="assets/images/gallery/fdmg_hero.jpg" alt="Flying Dust Market Garden" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <!-- Text content second on mobile, first on desktop -->
+            <div class="px-6 pb-24 pt-10 sm:pb-32 lg:col-span-7 lg:px-0 lg:pb-56 lg:pt-48 xl:col-span-6 order-last lg:order-first">
                 <div class="mx-auto max-w-2xl lg:mx-0">
                     <div class="hidden sm:flex sm:space-x-2 sm:mb-8">
                         <span class="rounded-full px-3 py-1 text-sm font-semibold leading-6 ring-1 ring-inset" style="background-color: rgba(255, 153, 10, 0.1); color: #ff990a; border-color: rgba(255, 153, 10, 0.2);">
@@ -97,11 +104,6 @@
                             Learn more <span aria-hidden="true">→</span>
                         </a>
                     </div>
-                </div>
-            </div>
-            <div class="relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
-                <div class="relative h-96 lg:h-full rounded-lg overflow-hidden">
-                    <img src="assets/images/gallery/fdmg_hero.jpg" alt="Flying Dust Market Garden" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
